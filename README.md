@@ -44,30 +44,53 @@ PC와 모바일 간 간단한 텍스트 공유를 위한 웹 애플리케이션�
 
 ## 빠른 시작 (웹 배포)
 
-### Vercel로 배포 (권장)
+### Supabase + Vercel로 배포 (권장)
+
+#### 1. Supabase 설정
+
+1. [Supabase](https://supabase.com)에서 새 프로젝트 생성
+2. SQL Editor에서 `supabase-setup.sql` 파일의 내용 실행
+3. Settings > API에서 다음 정보 확인:
+   - `Project URL` (SUPABASE_URL)
+   - `anon public` key (SUPABASE_ANON_KEY)
+
+#### 2. Vercel 배포
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/lhwqaz-hue/memosite)
 
 1. 위 버튼 클릭
 2. GitHub 계정으로 로그인
 3. 프로젝트 이름 설정
-4. Deploy 클릭
-5. 완료! URL로 접속 가능
+4. Environment Variables 추가:
+   - `SUPABASE_URL`: Supabase 프로젝트 URL
+   - `SUPABASE_ANON_KEY`: Supabase anon key
+5. Deploy 클릭
+6. 완료! URL로 접속 가능
 
 ### 로컬 실행
 
 #### 필수 요구사항
 - Node.js (v14 이상)
 - npm 또는 yarn
+- Supabase 계정
 
 ### 설치
 ```bash
 # 저장소 클론
- git clone https://github.com/lhwqaz-hue/memosite.git
+git clone https://github.com/lhwqaz-hue/memosite.git
 cd memosite
 
 # 의존성 설치
 npm install
+
+# .env 파일 생성
+cp .env.example .env
+# .env 파일을 열어 Supabase 정보 입력:
+# SUPABASE_URL=your_supabase_project_url
+# SUPABASE_ANON_KEY=your_supabase_anon_key
+
+# 서버 실행
+npm start
 ```
 
 ### 실행

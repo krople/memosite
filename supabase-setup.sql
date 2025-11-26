@@ -12,7 +12,10 @@ CREATE TABLE IF NOT EXISTS memos (
     expires_at TIMESTAMPTZ
 );
 
--- 인덱스 생성 (성능 최적화)
+-- 인덱스 생성 (성능 최적화) - IF NOT EXISTS는 지원하지 않으므로 DROP 후 생성
+DROP INDEX IF EXISTS idx_memos_password;
+DROP INDEX IF EXISTS idx_memos_expires_at;
+
 CREATE INDEX idx_memos_password ON memos(password);
 CREATE INDEX idx_memos_expires_at ON memos(expires_at);
 

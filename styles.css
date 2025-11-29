@@ -855,12 +855,22 @@ body[data-theme="dark"] .key-button:hover {
 
     #search-input {
         font-size: 0.85rem;
-        padding: 10px 40px 10px 12px;
+        padding: 10px 120px 10px 12px;
+    }
+
+    .search-controls {
+        right: 40px;
     }
 
     .search-count {
-        font-size: 0.7rem;
-        right: 32px;
+        font-size: 0.65rem;
+        min-width: 28px;
+    }
+
+    .search-nav-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
     }
 
     .clear-btn {
@@ -876,8 +886,8 @@ body[data-theme="dark"] .key-button:hover {
     }
 
     .theme-toggle {
-        font-size: 1rem;
-        padding: 5px 8px;
+        font-size: 0.75rem;
+        padding: 6px 12px;
     }
 
     .memo-container {
@@ -947,18 +957,22 @@ body[data-theme="dark"] .key-button:hover {
 
 /* 테마 토글 버튼 */
 .theme-toggle {
+    font-family: 'Courier New', monospace;
     background: var(--button-bg);
     color: var(--text-primary);
     border: 2px solid var(--input-border);
-    padding: 8px 16px;
-    border-radius: 6px;
+    padding: 8px 12px;
+    border-radius: 50%;
     cursor: pointer;
     font-size: 0.85rem;
     font-weight: 600;
+    letter-spacing: 0.5px;
     transition: all 0.3s;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 40px;
+    height: 40px;
 }
 
 .theme-toggle:hover {

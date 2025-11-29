@@ -1,7 +1,7 @@
 # Dependencies
 node_modules/
 
-# Environment variables
+# Environment variables (레거시 - 사용 안 함)
 .env
 .env.local
 .env.development.local
@@ -14,13 +14,23 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
+pnpm-debug.log*
 
 # OS files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
 
 # IDE
 .vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 .idea/
 *.swp
 *.swo
@@ -28,19 +38,27 @@ Thumbs.db
 .project
 .classpath
 .settings/
+*.sublime-project
+*.sublime-workspace
 
-# Build output
+# Build output (정적 사이트이므로 불필요)
 dist/
 build/
 out/
+.next/
+.nuxt/
+.cache/
 
 # Temporary files
 *.tmp
 *.temp
+*.bak
+*.swp
 
 # Test coverage
 coverage/
 .nyc_output/
+*.lcov
 
 # Optional npm cache directory
 .npm
@@ -51,8 +69,40 @@ coverage/
 # Optional REPL history
 .node_repl_history
 
-# Package manager lock files (optional)
-# Uncomment if you want to ignore these
-# package-lock.json
-# yarn.lock
-# pnpm-lock.yaml
+# Optional stylelint cache
+.stylelintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional SASS cache
+.sass-cache/
+
+# Serverless directories
+.serverless/
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# yarn v2
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# 사용자 설정 (app-supabase.js에 Supabase 키를 입력한 경우)
+# app-supabase.js 파일을 개인용으로 사용하고 공개하지 않으려면 주석 해제
+# app-supabase.js

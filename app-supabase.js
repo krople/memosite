@@ -2,8 +2,8 @@
 // Supabase 설정 - 여기에 직접 입력하세요!
 // ============================================
 const SUPABASE_CONFIG = {
-    url: '',  // 예: 'https://xxxxxxxxxxxxx.supabase.co'
-    key: ''   // 예: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...'
+    url: 'https://zgtzizxgnmhyytyerdhj.supabase.co',  // 예: 'https://xxxxxxxxxxxxx.supabase.co'
+    key: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpndHppenhnbm1oeXl0eWVyZGhqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQxNTMzODcsImV4cCI6MjA3OTcyOTM4N30.GF2adnCmk48E8-bSuelk_1zzL8qzRjoVKUn91wzfaMM'   // 예: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...'
 };
 // ============================================
 

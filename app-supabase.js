@@ -173,6 +173,14 @@ function startTimer() {
     timerInterval = setInterval(updateTimer, 1000);
 }
 
+// 키 설정 입력창에서 엔터 키로 설정
+setKeyInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        setKeyBtn.click();
+    }
+});
+
 // 키 설정 (새 메모 생성)
 setKeyBtn.addEventListener('click', async () => {
     if (!checkSupabaseConfig()) {
@@ -238,6 +246,14 @@ setKeyBtn.addEventListener('click', async () => {
     } catch (error) {
         console.error(error);
         setKeyError.textContent = '오류가 발생했습니다. 다시 시도해주세요.';
+    }
+});
+
+// 키 불러오기 입력창에서 엔터 키로 불러오기
+loadKeyInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        loadKeyBtn.click();
     }
 });
 
@@ -397,9 +413,6 @@ deleteKeyBtn.addEventListener('click', async () => {
         return;
     }
     
-    // 로컬 저장 선택 팝업
-    const keepLocal = confirm('메모 내용을 로컬에 보관하시겠습니까?\n\n확인: 로컬에 저장 (오프라인 유지)\n취소: 완전히 삭제');
-    
     try {
         const { error } = await supabase
             .from('memos')
@@ -408,21 +421,11 @@ deleteKeyBtn.addEventListener('click', async () => {
         
         if (error) throw error;
         
-        const content = memoEditor.value;
-        
-        if (keepLocal) {
-            // 로컬에 저장
-            if (content) {
-                localStorage.setItem('localMemo', content);
-            }
-            showToast('키가 삭제되었습니다 (로컬 보관)');
-        } else {
-            // 완전히 삭제
-            memoEditor.value = '';
-            updateCharCount('');
-            localStorage.removeItem('localMemo');
-            showToast('키와 메모가 삭제되었습니다');
-        }
+        // 완전히 삭제 (로컬 포함)
+        memoEditor.value = '';
+        updateCharCount('');
+        localStorage.removeItem('localMemo');
+        showToast('키와 메모가 삭제되었습니다');
         
         // KEY 버튼으로 초기화
         currentMemoPassword = null;

@@ -96,7 +96,7 @@ body[data-theme="dark"] {
     max-width: 500px;
     width: 100%;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
-    animation: modalSlideIn 0.3s ease-out;
+    animation: modalSlideIn 0.1s ease-out;
     position: relative;
     border: 1px solid var(--modal-border);
     transition: background 0.3s, border-color 0.3s;
@@ -188,9 +188,9 @@ body[data-theme="dark"] .close-modal-btn:hover {
 /* 키 섹션 스타일 */
 .key-section {
     background: var(--card-bg);
-    padding: 25px;
+    padding: 18px;
     border-radius: 12px;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     border: 1px solid var(--card-border);
     transition: background 0.3s, border-color 0.3s;
 }
@@ -253,7 +253,7 @@ body[data-theme="dark"] .close-modal-btn:hover {
     text-align: center;
     color: #999;
     font-size: 0.9rem;
-    margin: 25px 0;
+    margin: 12px 0;
     position: relative;
 }
 
@@ -417,6 +417,7 @@ body[data-theme="dark"] .key-button:hover {
     font-size: 0.9rem;
     color: var(--text-secondary);
     user-select: none;
+    margin-right: 8px;
 }
 
 .timer-button {
@@ -427,7 +428,8 @@ body[data-theme="dark"] .key-button:hover {
     cursor: pointer;
     transition: background 0.2s, border-color 0.2s;
     color: var(--text-secondary);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    font-weight: 600;
     font-family: 'Courier New', monospace;
 }
 
@@ -479,7 +481,7 @@ body[data-theme="dark"] .key-button:hover {
 
 .search-controls {
     position: absolute;
-    right: 10px;
+    right: 35px;
     top: 50%;
     transform: translateY(-50%);
     display: flex;
@@ -654,6 +656,8 @@ body[data-theme="dark"] .key-button:hover {
 
 .char-count-divider {
     color: var(--text-tertiary);
+    user-select: none;
+    pointer-events: none;
 }
 
 #char-count-no-space {
@@ -802,6 +806,15 @@ body[data-theme="dark"] .key-button:hover {
         flex-direction: column;
     }
 
+    .key-section {
+        padding: 15px;
+        margin-bottom: 10px;
+    }
+
+    .divider {
+        margin: 10px 0;
+    }
+
     .key-input-group {
         flex-direction: column;
     }
@@ -855,11 +868,11 @@ body[data-theme="dark"] .key-button:hover {
 
     #search-input {
         font-size: 0.85rem;
-        padding: 10px 120px 10px 12px;
+        padding: 10px 130px 10px 12px;
     }
 
     .search-controls {
-        right: 40px;
+        right: 44px;
     }
 
     .search-count {
@@ -922,14 +935,15 @@ body[data-theme="dark"] .key-button:hover {
     .status-bar {
         font-size: 0.75rem;
         padding: 8px 15px;
-        flex-direction: column;
-        gap: 5px;
-        align-items: flex-start;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .char-count-group {
-        width: 100%;
-        justify-content: space-between;
+        display: flex;
+        align-items: center;
+        gap: 6px;
     }
 
     #char-count-no-space {

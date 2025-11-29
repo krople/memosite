@@ -118,7 +118,7 @@ function toggleTheme() {
 
 function updateThemeIcon() {
     const currentTheme = document.body.getAttribute('data-theme');
-    themeToggle.textContent = currentTheme === 'light' ? '🌙' : '☀️';
+    themeToggle.textContent = currentTheme === 'light' ? 'D' : 'L';
 }
 
 themeToggle.addEventListener('click', toggleTheme);

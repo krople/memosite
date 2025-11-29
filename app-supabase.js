@@ -216,8 +216,12 @@ setKeyBtn.addEventListener('click', async () => {
         currentMemoPassword = password;
         keyButton.textContent = password;
         memoEditor.placeholder = '여기에 메모를 작성하세요...';
-        lastSavedContent = memoEditor.value;
-        updateCharCount(memoEditor.value);
+        memoEditor.value = ''; // 새 키 생성 시 메모 내용 초기화
+        lastSavedContent = '';
+        updateCharCount('');
+        
+        // 로컬 저장소 초기화
+        localStorage.removeItem('localMemo');
         
         selectedDuration = 30;
         expiresAt = new Date(data.expires_at).getTime();
@@ -277,6 +281,9 @@ loadKeyBtn.addEventListener('click', async () => {
         memoEditor.placeholder = '여기에 메모를 작성하세요...';
         lastSavedContent = memoEditor.value;
         updateCharCount(memoEditor.value);
+        
+        // 로컬 저장소 초기화
+        localStorage.removeItem('localMemo');
         
         selectedDuration = data.duration_minutes || 30;
         expiresAt = new Date(data.expires_at).getTime();
@@ -384,6 +391,9 @@ deleteKeyBtn.addEventListener('click', async () => {
         return;
     }
     
+    // 로컬 저장 선택 팝업
+    const keepLocal = confirm('메모 내용을 로컬에 보관하시겠습니까?\n\n확인: 로컬에 저장 (오프라인 유지)\n취소: 완전히 삭제');
+    
     try {
         const { error } = await supabase
             .from('memos')
@@ -394,18 +404,24 @@ deleteKeyBtn.addEventListener('click', async () => {
         
         const content = memoEditor.value;
         
-        showToast('키가 삭제되었습니다');
+        if (keepLocal) {
+            // 로컬에 저장
+            if (content) {
+                localStorage.setItem('localMemo', content);
+            }
+            showToast('키가 삭제되었습니다 (로컬 보관)');
+        } else {
+            // 완전히 삭제
+            memoEditor.value = '';
+            updateCharCount('');
+            localStorage.removeItem('localMemo');
+            showToast('키와 메모가 삭제되었습니다');
+        }
         
-        // KEY 버튼으로 초기화 (메모 내용은 유지)
+        // KEY 버튼으로 초기화
         currentMemoPassword = null;
         keyButton.textContent = 'KEY';
         memoEditor.placeholder = '여기에 메모를 작성하세요...';
-        // memoEditor.value는 그대로 유지
-        
-        // 로컬에 현재 내용 저장
-        if (content) {
-            localStorage.setItem('localMemo', content);
-        }
         
         if (timerInterval) {
             clearInterval(timerInterval);

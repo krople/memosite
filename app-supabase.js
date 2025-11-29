@@ -158,9 +158,9 @@ function updateTimer() {
     if (totalMinutes >= 60) {
         const hours = Math.floor(totalMinutes / 60);
         const minutes = totalMinutes % 60;
-        timerDisplay.textContent = `⏱️ ${hours}:${minutes.toString().padStart(2, '0')}`;
+        timerDisplay.textContent = `⏱️ ${hours}:${minutes.toString().padStart(2, '0')} (h)`;
     } else {
-        timerDisplay.textContent = `⏱️ ${totalMinutes}:${seconds.toString().padStart(2, '0')}`;
+        timerDisplay.textContent = `⏱️ ${totalMinutes}:${seconds.toString().padStart(2, '0')} (m)`;
     }
 }
 

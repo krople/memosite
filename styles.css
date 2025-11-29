@@ -458,7 +458,7 @@ body[data-theme="dark"] .key-button:hover {
 
 #search-input {
     flex: 1;
-    padding: 8px 110px 8px 12px;
+    padding: 8px 130px 8px 12px;
     border: 2px solid var(--input-border);
     border-radius: 8px;
     font-size: 0.85rem;

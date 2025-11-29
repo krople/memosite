@@ -307,6 +307,12 @@ memoEditor.addEventListener('input', () => {
     const content = memoEditor.value;
     updateCharCount(content);
     
+    // 검색 중이면 하이라이트 업데이트
+    const searchTerm = searchInput.value;
+    if (searchTerm) {
+        highlightSearchText(content, searchTerm);
+    }
+    
     if (!currentMemoPassword) {
         // 로컬 모드: localStorage에 저장
         localStorage.setItem('localMemo', content);

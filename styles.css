@@ -481,43 +481,46 @@ body[data-theme="dark"] .key-button:hover {
     font-size: 0.75rem;
     color: var(--text-secondary);
     white-space: nowrap;
-    margin: 0 5px;
+    margin-left: 8px;
     flex-shrink: 0;
 }
 
 .search-nav-btn {
-    background: transparent;
-    border: none;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
+    background: var(--button-bg);
+    border: 1px solid var(--input-border);
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.3s, color 0.3s;
+    transition: all 0.2s;
     color: var(--text-secondary);
     flex-shrink: 0;
+    margin-left: 4px;
 }
 
 .search-nav-btn:hover {
     background: var(--button-hover);
     color: var(--text-primary);
+    border-color: #667eea;
 }
 
 .clear-btn {
-    background: transparent;
-    border: none;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
+    background: var(--button-bg);
+    border: 1px solid var(--input-border);
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.3s, color 0.3s;
+    transition: all 0.2s;
+    margin-left: 4px;
     color: var(--text-secondary);
     flex-shrink: 0;
 }
@@ -525,6 +528,7 @@ body[data-theme="dark"] .key-button:hover {
 .clear-btn:hover {
     background: var(--button-hover);
     color: var(--text-primary);
+    border-color: #667eea;
 }
 
 .memo-container {

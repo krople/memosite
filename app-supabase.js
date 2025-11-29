@@ -375,10 +375,6 @@ deleteKeyBtn.addEventListener('click', async () => {
         return;
     }
     
-    // 확인
-    const confirmDelete = confirm(`키 "${currentMemoPassword}"를 삭제하시겠습니까?\n\n메모 내용은 로컬에 남아있지만, Supabase의 공유 데이터는 삭제됩니다.`);
-    if (!confirmDelete) return;
-    
     try {
         const { error } = await supabase
             .from('memos')
@@ -389,17 +385,17 @@ deleteKeyBtn.addEventListener('click', async () => {
         
         const content = memoEditor.value;
         
-        alert('키가 삭제되었습니다.\n메모 내용은 로컬 모드로 전환됩니다.');
+        alert('키가 삭제되었습니다.');
         
-        // 로컬 모드로 전환
+        // KEY 버튼으로 초기화
         currentMemoPassword = null;
-        keyButton.textContent = '🔑 키 설정';
-        memoEditor.placeholder = '로컬 모드 (키 없이 사용)';
+        keyButton.textContent = 'KEY';
+        memoEditor.placeholder = '여기에 메모를 작성하세요...';
+        memoEditor.value = '';
+        updateCharCount('');
         
-        // 메모 내용은 유지하고 로컬에 저장
-        if (content) {
-            localStorage.setItem('localMemo', content);
-        }
+        // 로컬 저장소 정리
+        localStorage.removeItem('localMemo');
         
         if (timerInterval) {
             clearInterval(timerInterval);
@@ -411,8 +407,9 @@ deleteKeyBtn.addEventListener('click', async () => {
         timerDisplay.textContent = '⏱️ --:--';
         expiresAt = null;
         
-        saveStatus.textContent = '로컬 저장됨';
+        saveStatus.textContent = '';
         hideDurationModal();
+        showModal();
         
     } catch (error) {
         console.error('Delete error:', error);

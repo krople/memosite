@@ -137,12 +137,12 @@ themeToggle.addEventListener('click', toggleTheme);
 searchToggleBtn.addEventListener('click', () => {
     headerLeft.classList.toggle('collapsed');
     
-    // 아이콘 변경
+    // 아이콘 변경 (▼: 펼치기, ▲: 접기)
     if (headerLeft.classList.contains('collapsed')) {
-        searchToggleBtn.textContent = '🔍';
+        searchToggleBtn.textContent = '▼';
         searchToggleBtn.title = '검색 표시';
     } else {
-        searchToggleBtn.textContent = '✕';
+        searchToggleBtn.textContent = '▲';
         searchToggleBtn.title = '검색 숨김';
     }
 });
@@ -150,7 +150,7 @@ searchToggleBtn.addEventListener('click', () => {
 // 모바일에서 초기 상태를 collapsed로 설정
 if (window.innerWidth <= 768) {
     headerLeft.classList.add('collapsed');
-    searchToggleBtn.textContent = '🔍';
+    searchToggleBtn.textContent = '▼';
     searchToggleBtn.title = '검색 표시';
 }
 

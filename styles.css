@@ -770,11 +770,11 @@ body[data-theme="dark"] .key-button:hover {
 /* 하이라이트 레이어 */
 .highlight-layer {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    right: 20px;
-    bottom: 20px;
-    padding: 20px;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    padding: 15px;
     overflow-y: auto;
     overflow-x: hidden;
     pointer-events: none;
@@ -784,10 +784,9 @@ body[data-theme="dark"] .key-button:hover {
     font-size: 1.1rem;
     line-height: 1.8;
     color: transparent;
-    background: var(--memo-bg);
+    background: transparent;
     border-radius: 10px;
     z-index: 0;
-    transition: background 0.3s;
 }
 
 #memo-editor {
@@ -832,6 +831,18 @@ body[data-theme="dark"] .key-button:hover {
     background-color: rgba(255, 152, 0, 0.8);
     font-weight: bold;
     padding: 1px 0;
+}
+
+/* 찾을 단어 하이라이트 */
+.find-highlight {
+    background-color: rgba(102, 126, 234, 0.3);
+    border-radius: 2px;
+    padding: 0;
+    transition: background-color 0.2s;
+}
+
+body[data-theme="dark"] .find-highlight {
+    background-color: rgba(102, 126, 234, 0.4);
 }
 
 .status-bar {
@@ -897,6 +908,19 @@ body[data-theme="dark"] .key-button:hover {
 .toast-notification.show {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
+}
+
+/* 모바일에서 토스트를 위쪽에 표시 */
+@media (max-width: 768px) {
+    .toast-notification {
+        top: 80px;
+        bottom: auto;
+        transform: translateX(-50%) translateY(-100px);
+    }
+    
+    .toast-notification.show {
+        transform: translateX(-50%) translateY(0);
+    }
 }
 
 /* 유효시간 설정 관련 스타일 */
@@ -1035,29 +1059,35 @@ body[data-theme="dark"] .key-button:hover {
     }
 
     .header {
-        flex-direction: column;
+        flex-direction: row;
         align-items: flex-start;
         gap: 10px;
         padding: 10px 15px;
+        position: relative;
     }
 
     .header-left,
     .header-right {
-        width: 100%;
+        width: auto;
         gap: 8px;
     }
 
     .header-left {
         flex-direction: column;
         gap: 10px;
+        flex: 1;
     }
 
     .header-right {
+        position: absolute;
+        top: 10px;
+        right: 15px;
         flex-direction: row;
-        justify-content: center;
+        justify-content: flex-end;
         align-items: center;
         flex-wrap: nowrap;
-        gap: 12px;
+        gap: 8px;
+        width: auto;
     }
 
     .password-info {
@@ -1082,12 +1112,18 @@ body[data-theme="dark"] .key-button:hover {
         max-width: 100%;
         flex-wrap: wrap;
         gap: 6px;
+        align-items: stretch;
     }
 
-    .find-input-wrapper,
+    .find-input-wrapper {
+        flex: 1 1 100%;
+        order: 1;
+    }
+
     .replace-input-wrapper {
-        flex: 1 1 calc(50% - 20px);
-        min-width: 120px;
+        flex: 1 1 auto;
+        order: 2;
+        min-width: 0;
     }
 
     .find-input-wrapper input,
@@ -1103,30 +1139,22 @@ body[data-theme="dark"] .key-button:hover {
     }
 
     .replace-arrow {
-        font-size: 1rem;
-        order: 2;
+        display: none;
     }
 
     .replace-btn {
-        flex: 0 0 calc(50% - 4px);
-        order: 4;
+        flex: 0 0 auto;
+        order: 3;
         font-size: 0.8rem;
         padding: 6px 12px;
+        white-space: nowrap;
     }
 
     .undo-btn {
-        flex: 0 0 calc(50% - 4px);
-        order: 5;
+        flex: 0 0 auto;
+        order: 4;
         font-size: 1rem;
         padding: 6px 12px;
-    }
-
-    .find-input-wrapper {
-        order: 1;
-    }
-
-    .replace-input-wrapper {
-        order: 3;
     }
 
     .logo {
@@ -1171,9 +1199,9 @@ body[data-theme="dark"] .key-button:hover {
     }
 
     .memo-container {
-        min-height: 300px;
-        padding: 15px;
-        margin: 0 10px;
+        min-height: 250px;
+        padding: 10px;
+        margin: 5px 10px;
     }
 
     #memo-editor {
@@ -1182,9 +1210,9 @@ body[data-theme="dark"] .key-button:hover {
         right: 10px;
         bottom: 10px;
         width: calc(100% - 20px);
-        min-height: 300px;
+        min-height: 250px;
         font-size: 1rem;
-        padding: 15px;
+        padding: 10px;
     }
 
     .highlight-layer {
@@ -1193,7 +1221,7 @@ body[data-theme="dark"] .key-button:hover {
         right: 10px;
         bottom: 10px;
         font-size: 1rem;
-        padding: 15px;
+        padding: 10px;
     }
 
     .duration-options {

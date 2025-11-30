@@ -762,7 +762,7 @@ body[data-theme="dark"] .key-button:hover {
     flex-direction: column;
     border: 2px solid var(--card-border);
     border-radius: 12px;
-    margin: 10px 20px;
+    margin: 10px 10px;
     background: var(--memo-bg);
     transition: border-color 0.3s, background 0.3s;
 }
@@ -1059,35 +1059,40 @@ body[data-theme="dark"] .find-highlight {
     }
 
     .header {
-        flex-direction: row;
+        flex-direction: column;
         align-items: flex-start;
-        gap: 10px;
-        padding: 10px 15px;
-        position: relative;
-    }
-
-    .header-left,
-    .header-right {
-        width: auto;
-        gap: 8px;
+        gap: 0;
+        padding: 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--header-bg);
     }
 
     .header-left {
+        width: 100%;
         flex-direction: column;
-        gap: 10px;
-        flex: 1;
+        gap: 8px;
+        padding: 10px 15px 8px 15px;
+        order: 1;
     }
 
     .header-right {
-        position: absolute;
-        top: 10px;
-        right: 15px;
+        width: 100%;
         flex-direction: row;
-        justify-content: flex-end;
+        justify-content: center;
         align-items: center;
         flex-wrap: nowrap;
-        gap: 8px;
-        width: auto;
+        gap: 12px;
+        padding: 8px 15px;
+        order: 3;
+        background: var(--header-bg);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+        font-size: 1.3rem;
+        margin-bottom: 6px;
     }
 
     .password-info {
@@ -1113,17 +1118,46 @@ body[data-theme="dark"] .find-highlight {
         flex-wrap: wrap;
         gap: 6px;
         align-items: stretch;
+        order: 2;
+        padding: 0 15px 8px 15px;
     }
 
     .find-input-wrapper {
-        flex: 1 1 100%;
+        flex: 1 1 calc(100% - 44px);
         order: 1;
+    }
+
+    .undo-btn {
+        flex: 0 0 38px;
+        order: 2;
+        font-size: 1rem;
+        padding: 6px 8px;
+        height: auto;
+    }
+
+    .replace-arrow {
+        flex: 0 0 100%;
+        order: 3;
+        display: block;
+        text-align: center;
+        font-size: 1.2rem;
+        line-height: 1;
+        margin: -2px 0;
+        transform: rotate(90deg);
     }
 
     .replace-input-wrapper {
         flex: 1 1 auto;
-        order: 2;
+        order: 4;
         min-width: 0;
+    }
+
+    .replace-btn {
+        flex: 0 0 auto;
+        order: 5;
+        font-size: 0.8rem;
+        padding: 6px 12px;
+        white-space: nowrap;
     }
 
     .find-input-wrapper input,
@@ -1136,25 +1170,6 @@ body[data-theme="dark"] .find-highlight {
         font-size: 0.7rem;
         right: 8px;
         padding: 1px 3px;
-    }
-
-    .replace-arrow {
-        display: none;
-    }
-
-    .replace-btn {
-        flex: 0 0 auto;
-        order: 3;
-        font-size: 0.8rem;
-        padding: 6px 12px;
-        white-space: nowrap;
-    }
-
-    .undo-btn {
-        flex: 0 0 auto;
-        order: 4;
-        font-size: 1rem;
-        padding: 6px 12px;
     }
 
     .logo {
@@ -1201,7 +1216,7 @@ body[data-theme="dark"] .find-highlight {
     .memo-container {
         min-height: 250px;
         padding: 10px;
-        margin: 5px 10px;
+        margin: 5px 5px;
     }
 
     #memo-editor {

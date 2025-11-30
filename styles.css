@@ -1123,41 +1123,14 @@ body[data-theme="dark"] .find-highlight {
     }
 
     .find-input-wrapper {
-        flex: 1 1 calc(100% - 44px);
+        flex: 1 1 100%;
         order: 1;
-    }
-
-    .undo-btn {
-        flex: 0 0 38px;
-        order: 2;
-        font-size: 1rem;
-        padding: 6px 8px;
-        height: auto;
-    }
-
-    .replace-arrow {
-        flex: 0 0 100%;
-        order: 3;
-        display: block;
-        text-align: center;
-        font-size: 1.2rem;
-        line-height: 1;
-        margin: -2px 0;
-        transform: rotate(90deg);
     }
 
     .replace-input-wrapper {
         flex: 1 1 auto;
-        order: 4;
+        order: 2;
         min-width: 0;
-    }
-
-    .replace-btn {
-        flex: 0 0 auto;
-        order: 5;
-        font-size: 0.8rem;
-        padding: 6px 12px;
-        white-space: nowrap;
     }
 
     .find-input-wrapper input,
@@ -1170,6 +1143,25 @@ body[data-theme="dark"] .find-highlight {
         font-size: 0.7rem;
         right: 8px;
         padding: 1px 3px;
+    }
+
+    .replace-arrow {
+        display: none;
+    }
+
+    .replace-btn {
+        flex: 0 0 auto;
+        order: 3;
+        font-size: 0.8rem;
+        padding: 6px 12px;
+        white-space: nowrap;
+    }
+
+    .undo-btn {
+        flex: 0 0 auto;
+        order: 4;
+        font-size: 1rem;
+        padding: 6px 12px;
     }
 
     .logo {

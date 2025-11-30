@@ -387,6 +387,10 @@ body[data-theme="dark"] .close-modal-btn:hover {
     flex-wrap: nowrap;
 }
 
+.search-toggle-btn {
+    display: none;
+}
+
 .password-info {
     display: flex;
     align-items: center;
@@ -1136,6 +1140,13 @@ body[data-theme="dark"] .find-highlight {
         margin-bottom: 6px;
     }
 
+    .search-toggle-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        order: 0;
+    }
+
     .password-info {
         order: 1;
     }
@@ -1147,6 +1158,10 @@ body[data-theme="dark"] .find-highlight {
 
     .theme-toggle {
         order: 3;
+    }
+
+    .header-left.collapsed {
+        display: none;
     }
 
     .search-bar-inline {

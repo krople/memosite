@@ -62,6 +62,9 @@ const saveStatus = document.getElementById('save-status');
 const charCount = document.getElementById('char-count');
 const charCountNoSpace = document.getElementById('char-count-no-space');
 
+const searchToggleBtn = document.getElementById('search-toggle-btn');
+const headerLeft = document.querySelector('.header-left');
+
 const findInput = document.getElementById('find-input');
 const replaceInput = document.getElementById('replace-input');
 const replaceBtn = document.getElementById('replace-btn');
@@ -129,6 +132,27 @@ function updateThemeIcon() {
 }
 
 themeToggle.addEventListener('click', toggleTheme);
+
+// 검색/일괄수정 토글 기능 (모바일 전용)
+searchToggleBtn.addEventListener('click', () => {
+    headerLeft.classList.toggle('collapsed');
+    
+    // 아이콘 변경
+    if (headerLeft.classList.contains('collapsed')) {
+        searchToggleBtn.textContent = '🔍';
+        searchToggleBtn.title = '검색 표시';
+    } else {
+        searchToggleBtn.textContent = '✕';
+        searchToggleBtn.title = '검색 숨김';
+    }
+});
+
+// 모바일에서 초기 상태를 collapsed로 설정
+if (window.innerWidth <= 768) {
+    headerLeft.classList.add('collapsed');
+    searchToggleBtn.textContent = '🔍';
+    searchToggleBtn.title = '검색 표시';
+}
 
 // 글자 가리기 토글 (키 설정)
 hidePasswordCheckbox.addEventListener('change', (e) => {

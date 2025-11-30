@@ -550,17 +550,51 @@ body[data-theme="dark"] .key-button:hover {
     display: flex;
     align-items: center;
     min-width: 0;
+    position: relative;
 }
 
 .replace-input-wrapper input {
     width: 100%;
-    padding: 8px 12px;
+    padding: 8px 70px 8px 12px;
     border: 2px solid var(--input-border);
     border-radius: 8px;
     font-size: 0.85rem;
     transition: border-color 0.3s, background 0.3s, color 0.3s;
     background: var(--input-bg);
     color: var(--text-primary);
+}
+
+.replace-btn-icon,
+.undo-btn-icon {
+    position: absolute;
+    right: 8px;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 4px 8px;
+    transition: color 0.2s, transform 0.1s;
+    line-height: 1;
+}
+
+.replace-btn-icon {
+    right: 38px;
+}
+
+.undo-btn-icon {
+    right: 8px;
+}
+
+.replace-btn-icon:hover,
+.undo-btn-icon:hover {
+    color: #667eea;
+    transform: scale(1.1);
+}
+
+.replace-btn-icon:active,
+.undo-btn-icon:active {
+    transform: scale(0.95);
 }
 
 #replace-input {
@@ -604,6 +638,7 @@ body[data-theme="dark"] .key-button:hover {
     transition: background 0.3s;
     white-space: nowrap;
     flex-shrink: 0;
+    display: none;
 }
 
 .replace-btn:hover {
@@ -626,6 +661,7 @@ body[data-theme="dark"] .key-button:hover {
     white-space: nowrap;
     flex-shrink: 0;
     line-height: 1;
+    display: none;
 }
 
 .undo-btn:hover {
@@ -1065,6 +1101,7 @@ body[data-theme="dark"] .find-highlight {
         padding: 0;
         position: static;
         background: var(--header-bg);
+        box-shadow: none;
     }
 
     .header-left {
@@ -1072,7 +1109,6 @@ body[data-theme="dark"] .find-highlight {
         flex-direction: column;
         gap: 8px;
         padding: 10px 15px 8px 15px;
-        order: 1;
         background: var(--header-bg);
     }
 
@@ -1084,7 +1120,6 @@ body[data-theme="dark"] .find-highlight {
         flex-wrap: nowrap;
         gap: 12px;
         padding: 8px 15px;
-        order: 3;
         background: var(--header-bg);
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         position: sticky;
@@ -1120,8 +1155,7 @@ body[data-theme="dark"] .find-highlight {
         flex-wrap: wrap;
         gap: 6px;
         align-items: stretch;
-        order: 2;
-        padding: 0 15px 8px 15px;
+        padding: 0 0 8px 0;
         background: var(--header-bg);
     }
 
@@ -1145,7 +1179,21 @@ body[data-theme="dark"] .find-highlight {
     }
 
     .replace-input-wrapper input {
-        padding: 8px 10px;
+        padding: 8px 70px 8px 10px;
+    }
+
+    .replace-btn-icon,
+    .undo-btn-icon {
+        font-size: 1.1rem;
+        padding: 4px 6px;
+    }
+
+    .replace-btn-icon {
+        right: 34px;
+    }
+
+    .undo-btn-icon {
+        right: 6px;
     }
 
     .find-count {
@@ -1156,25 +1204,6 @@ body[data-theme="dark"] .find-highlight {
 
     .replace-arrow {
         display: none;
-    }
-
-    .replace-btn {
-        flex: 0 0 auto;
-        order: 3;
-        font-size: 0.8rem;
-        padding: 8px 12px;
-        white-space: nowrap;
-        height: 36px;
-        box-sizing: border-box;
-    }
-
-    .undo-btn {
-        flex: 0 0 auto;
-        order: 4;
-        font-size: 1rem;
-        padding: 8px 12px;
-        height: 36px;
-        box-sizing: border-box;
     }
 
     .logo {

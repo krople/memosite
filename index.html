@@ -32,22 +32,23 @@
                         placeholder="일괄수정"
                         autocomplete="off"
                     >
+                    <button id="replace-btn" class="replace-btn-icon" title="모두 바꾸기">✓</button>
+                    <button id="undo-btn" class="undo-btn-icon" title="실행취소 (Ctrl+Z)">↶</button>
                 </div>
-                <button id="replace-btn" class="replace-btn" title="모두 바꾸기">바꾸기</button>
-                <button id="undo-btn" class="undo-btn" title="실행취소 (Ctrl+Z)">↶</button>
             </div>
         </div>
-        <div class="header-right">
-            <div class="password-info">
-                <button id="key-button" class="key-button" title="클릭하여 키 설정/변경">KEY</button>
-            </div>
-            <div class="timer-info" id="timer-info">
-                <button id="timer-button" class="timer-button" title="클릭하여 유효시간 설정" disabled>
-                    <span id="timer-display">⏱️ --:--</span>
-                </button>
-            </div>
-            <button id="theme-toggle" class="theme-toggle" title="테마 전환">D</button>
+    </div>
+    
+    <div class="header-right">
+        <div class="password-info">
+            <button id="key-button" class="key-button" title="클릭하여 키 설정/변경">KEY</button>
         </div>
+        <div class="timer-info" id="timer-info">
+            <button id="timer-button" class="timer-button" title="클릭하여 유효시간 설정" disabled>
+                <span id="timer-display">⏱️ --:--</span>
+            </button>
+        </div>
+        <button id="theme-toggle" class="theme-toggle" title="테마 전환">D</button>
     </div>
     
     <div class="memo-container">
